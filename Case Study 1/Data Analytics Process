@@ -9,7 +9,7 @@ Applying the EGAD framework will Justify the problem statement on  the why, what
 Why(Vission) do we need to solve the problem? What(issue) do we need to do? and how(process) are we going to solve it?
 
 Business Task: To maximize the number of annual members we need to convert casual riders into members by designing marketing strategies 
-aimed at converting casual riders into annual members.
+aimed at converting casual riders into yearly members.
 
 PREPARE Phase:
 The data was downloaded from https://divvy-tripdata.s3.amazonaws.com/index.html and has been made available by
@@ -22,17 +22,18 @@ It's 1. reliable - it's complete and not biased
     5. Cited - The data has been vetted and cited as a Public Dataset.
 
 PROCESS Phase
-In this process Tools were chosen, Data integrity observed, Data cleaned, verified, and consequent documentation.
+Activities in the phase are Choosing analysis tools, Data integrity observed, Data cleaning, verification, and consequent documentation.
 Data was cleaned and anomalies were removed. 
+For Clarity on Different Analysis tools, SQL, Spreadsheets, and RStudio were used in this project.
 A column called “ride_length.” was created. The length of each ride was calculated by subtracting the
-column “started_at” from the column “ended_at” (for example, =D2-C2) and formated as HH:MM:SS using Format > Cells >
+column “started_at” from the column “ended_at” (for example, =D2-C2) and formatted as HH:MM:SS using Format > Cells >
 Time > 37:30:55.
-A column called “day_of_week,” was created and calculation of the day of the week that each ride started using the “WEEKDAY”
+Creation of a column called “day_of_week,” and calculation of the day of the week that each ride started using the “WEEKDAY”
 command (for example, =WEEKDAY(C2,1)) in each file. Formated as General or as a number with no decimals, noting that
 1 = Sunday and 7 = Saturday.
 
 ANALYZE Phase
-In this phase it is worthy noting the following points:
+In this phase, it is worth noting the following points:
 1. Data Organization
 2. Data Formatting
 3. Surprises in the data
