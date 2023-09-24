@@ -31,5 +31,14 @@ A column called “day_of_week,” was created and calculation of the day of the
 command (for example, =WEEKDAY(C2,1)) in each file. Formated as General or as a number with no decimals, noting that
 1 = Sunday and 7 = Saturday.
 
+ANALYZE Phase
+In this phase it is worthy noting the following points:
+1. Data Organization
+2. Data Formatting
+3. Surprises in the data
+4. Trends and Relationship
+5. How insight will help answer the business question.
+
+
 
 
