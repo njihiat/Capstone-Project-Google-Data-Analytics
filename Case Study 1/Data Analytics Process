@@ -32,6 +32,8 @@ Creation of a column called “day_of_week,” and calculation of the day of the
 command (for example, =WEEKDAY(C2,1)) in each file. Formated as General or as a number with no decimals, noting that
 1 = Sunday and 7 = Saturday.
 
+There was processing done using SQL and the document is Attached.
+
 ANALYZE Phase
 In this phase, it is worth noting the following points:
 1. Data Organization
@@ -39,6 +41,13 @@ In this phase, it is worth noting the following points:
 3. Surprises in the data
 4. Trends and Relationship
 5. How insight will help answer the business question.
+
+A descriptive analysis was conducted on the data
+Some calculations were conducted which showed a better sense of data layout. ie mean of ride length, mode of day of the week, and maximum ride length.
+Few pivot tables were made. Avg ride_length for members and casuals, Avg ride length of users by day of week, and No of rides by day of week
+
+
+
 
 
 
