@@ -46,12 +46,20 @@ A descriptive analysis was conducted on the data
 Some calculations were conducted which showed a better sense of data layout. ie mean of ride length, mode of day of the week, and maximum ride length.
 Few pivot tables were made. Avg ride_length for members and casuals, Avg ride length of users by day of week, and No of rides by day of week
 
-After summarizing and describing the data, it was merged into a full-year view. 
+After summarizing and describing the data, it was merged into a full-year view.
+
 The merged workbook was imported to Microsoft SQL Server management studio for exploration
 The following was observed: The total number of rows, distinct values, maximum, minimum and averages.
 JOIN statements were used  to combine relevant data into one table.
 After creating a summary of statistics, Interesting trends were investigated and information
 saved to a table.
+
+The merged workbook was also imported to RStudio.
+Columns were made consistent and merged into a single data frame. 
+Data was cleaned up and prepared for analysis. A descriptive analysis was done and a summary file exported for further analysis.
+
+SHARE Phase
+
 
 
 
