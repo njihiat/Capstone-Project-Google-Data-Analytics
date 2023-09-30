@@ -56,9 +56,13 @@ saved to a table.
 
 The merged workbook was also imported to RStudio.
 Columns were made consistent and merged into a single data frame. 
-Data was cleaned up and prepared for analysis. A descriptive analysis was done and a summary file exported for further analysis.
+Data was cleaned up and prepared for analysis. A descriptive analysis was done and a summary file was exported for further analysis.
 
 SHARE Phase
+This Phase was guided by three questions:
+1. What do we want to visualize?
+2. what charts can be used to create a visualization of this type?
+3. What each visualization chart is good for to make a final decision?
 
 
 
