@@ -59,10 +59,22 @@ Columns were made consistent and merged into a single data frame.
 Data was cleaned up and prepared for analysis. A descriptive analysis was done and a summary file was exported for further analysis.
 
 SHARE Phase
-This Phase was guided by three questions:
-1. What do we want to visualize?
-2. what charts can be used to create a visualization of this type?
-3. What each visualization chart is good for to make a final decision?
+After analyzing the data and gaining some insights, data visualization were created to 
+share the findings. This Phase was guided by three questions:
+1. Was the question "How annual members and casual riders use cyclic bikes differently?" answered
+2. How did the findings relate to the first question?
+3. Who is my audience? What is the best way to communicate?
+4. Can the visualization help to share the findings?
+
+To create an effective and efficient visualization:
+1. First, sketched some ideas of visualization on a piece of paper
+2. Chose the tool of choice
+3. Created the data visualization.
+4. Ensured clear meaning of the visualization.
+5. Refined the visualization by applying deep attention to detail.
+
+ACT Phase
+
 
 
 
