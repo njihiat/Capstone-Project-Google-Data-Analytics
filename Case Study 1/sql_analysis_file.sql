@@ -132,14 +132,16 @@ ON ride_id_table.ride_id = feb23_divvy_tripdata.ride_id;
 
 -- the table contains unique records.
 
--- Having loaded the 12 dataset as tables to the Case_study_one database, we need to some pre-processing to ensure we are performing
-	-- analysis on clean data.
+-- Having loaded the 12 dataset as tables to the Case_study_one database, we need to some pre-processing to get an indepth look at the dataset.
     
--- PRE-PROCESSING--
+-- PROCESSING PHASE--
+-- For performance purposes, we are going to reduce each table to 15000 records.
+		CREATE TABLE aug22_tripdata_copy:
+DELETE from aug22_tripdata
+ORDER BY rand()
+LIMIT(SELECT COUNT(*)- 15000)
 
 
-
--- DESCRIPTIVE STATISTICS--
 
 			
     
