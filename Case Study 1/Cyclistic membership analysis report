@@ -3,8 +3,8 @@ Cyclistic is a fictional company in Chicago with 600+ docking stations and 5000+
 annual membership to its customers.
 Until now, the Cyclistic marketing strategy has relied on building awareness and appealing to the general public. The Financial analysis
 shows that annual memberships are more profitable than casual riders. 
-Therefore, the director of marketing believes that maximizing the number of annual memberships is the key to future growth.
-The data analysis team at Divvy Bike Share is tasked with a task to understand how casual riders and annual members use bikes differently.
+The director of marketing believes that maximizing the number of annual memberships is the key to future growth. Therefore, the data analysis
+team at Cyclistic Bike Share is tasked with a task to understand how casual riders and annual members use bikes differently.
 
 # Cyclistic bike-share Analysis
 ASK Phase:
@@ -13,8 +13,10 @@ These 3 questions will guide the marketing program and the analysis Process
 2. Why would casual riders buy Cyclistic annual memberships?
 3. How can Cyclistic use digital media to influence casual riders to become members?
 
-Applying the EGAD framework will Justify the problem statement on  the why, what, and how.
-Why(Vission) do we need to solve the problem? What(issue) do we need to do? and how(process) are we going to solve it?
+QUESTION: Why(Vission) do we need to solve the problem? What(issue) do we need to do? and how(process) are we going to solve it?
+
+ANSWER: We increase the profit margins by increasing the annual memberships. We need to develop a new marketing campaign strategy targeting casual
+        riders. This will solve the problem by converting casual riders into annual members.
 
 Business Task: To maximize the number of annual members we need to convert casual riders into members by designing marketing strategies 
 aimed at converting casual riders into yearly members.
@@ -23,24 +25,27 @@ PREPARE Phase:
 The data was downloaded from https://divvy-tripdata.s3.amazonaws.com/index.html and has been made available by
 Motivate International Inc. under a license.
 It is stored as an Excel Workbook "12 months Cyclist Bike share.xlsx" in rows and columns. The data ROCCC. 
-It's 1. reliable - it's complete and not biased
-    2. Original - The data source is Original  
-    3. Comprehensive - the data contain important information and lacks human error.
-    4. Current - The data is updated. It data from September 2022 to August 2023.
-    5. Cited - The data has been vetted and cited as a Public Dataset.
+It's    1. reliable - it's complete and not biased
+        2. Original - The data source is Original  
+        3. Comprehensive - the data contain important information and lacks human error.
+        4. Current - The data is updated. It's from September 2022 to August 2023.
+        5. Cited - The data has been vetted and cited as a Public Dataset.
 
 PROCESS Phase
 Activities in the phase are Choosing analysis tools, Data integrity observed, Data cleaning, verification, and consequent documentation.
 Data was cleaned and anomalies were removed. 
-For Clarity on Different Analysis tools, SQL, Spreadsheets, and RStudio were used in this project.
+For Clarity on Different Analysis tools were used in this project., 
+        SQL,
+        Spreadsheets
+        RStudio 
 A column called “ride_length.” was created. The length of each ride was calculated by subtracting the
-column “started_at” from the column “ended_at” (for example, =D2-C2) and formatted as HH:MM:SS using Format > Cells >
-Time > 37:30:55.
+column “started_at” from the column “ended_at” (for example, =D2-C2) and formatted as HH:MM:SS 
+
 Creation of a column called “day_of_week,” and calculation of the day of the week that each ride started using the “WEEKDAY”
 command (for example, =WEEKDAY(C2,1)) in each file. Formated as General or as a number with no decimals, noting that
 1 = Sunday and 7 = Saturday.
 
-There was processing done using SQL and the document is Attached.
+There was processing done using SQL and the document is Attached. See sql_analysis_file
 
 ANALYZE Phase
 In this phase, it is worth noting the following points:
