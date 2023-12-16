@@ -136,11 +136,15 @@ ON ride_id_table.ride_id = feb23_divvy_tripdata.ride_id;
     
 -- PROCESSING PHASE--
 -- For performance purposes, we are going to reduce each table to 15000 records.
-		CREATE TABLE aug22_tripdata_copy:
-DELETE from aug22_tripdata
-ORDER BY rand()
-LIMIT(SELECT COUNT(*)- 15000)
 
+DELETE from jan23_tripdata
+ORDER BY RAND()
+LIMIT 63000 ;
+-- aug22_tripdata now has 15009 records
+-- dec22_tripdata now has 15789 records
+-- jan23_tripdata now has 
+-- feb23_tripdata now has 15029 records
+-- apr23_tripdata now has 15027 records
 
 
 			
