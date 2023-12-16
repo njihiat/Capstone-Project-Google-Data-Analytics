@@ -36,7 +36,7 @@ FROM august_2022_divvy_tripdata;
 	
 -- Some station names were too long for the 50 characters set. Adjust the length to 100
 ALTER TABLE aug22_tripdata
-MODIFY COLUMN start_station_name VARCHAR(50) ;
+MODIFY COLUMN start_station_name VARCHAR(100) ; -- Changes the lenght of start_station_name column from 50 to 100. Change the end_ column also.
 
 -- Lets first check how many records have an empty column in any of the column
 SELECT	*
@@ -66,7 +66,7 @@ SELECT * FROM aug22_tripdata  LIMIT 10000000 ;
 -- When creating the table, I set the start_time and end_time to date data type rather than the datetime data type.
 -- modify the columns first  
 ALTER TABLE aug22_tripdata
-MODIFY COLUMN end_time DATETIME ;
+MODIFY COLUMN end_time DATETIME ; -- Changes the end_time column to DATETIME data type. Change the Start_time also.
 
 -- and update the data again by replacing the date with the original dates.
 
@@ -78,7 +78,7 @@ SET aug22_tripdata.end_time = august_2022_divvy_tripdata.ended_at;
 DROP TABLE august_2022_divvy_tripdata;
 
 -- Lets add the other 11 tables up to JULY 2023
-CREATE TABLE jun23_tripdata(
+CREATE TABLE jul23_tripdata(
 	ride_id VARCHAR (50) PRIMARY KEY,
     ride_type VARCHAR (50),
     start_time DATETIME,
@@ -90,9 +90,9 @@ CREATE TABLE jun23_tripdata(
     member_type VARCHAR (50)
     );
 -- lets insert data into this table. First we import the CSV and extract the fields that we need.
-SELECT * FROM jun23_tripdata; -- Counter check the columns name to see if they are correct
--- Use INSERT IGNORE to insert only the unique records only ignoring the duplicates record
-INSERT IGNORE INTO jun23_tripdata(ride_id, ride_type, start_time, end_time, start_station_id, start_station_name, end_station_id, end_station_name, member_type)
+SELECT * FROM jul23_tripdata; -- Counter check the columns name to see if they are correct
+-- Use INSERT IGNORE to insert only the unique records only, ignoring the duplicates record
+INSERT IGNORE INTO jul23_tripdata(ride_id, ride_type, start_time, end_time, start_station_id, start_station_name, end_station_id, end_station_name, member_type)
 	SELECT
 		ride_id,
 		rideable_type, 
@@ -103,14 +103,14 @@ INSERT IGNORE INTO jun23_tripdata(ride_id, ride_type, start_time, end_time, star
 		IF(end_station_id = '', NULL, end_station_id),
 		IF(end_station_name = '', NULL, end_station_name), 
 		member_casual
-	FROM june_2023_divvy_tripdata;
+	FROM july_2023_divvy_tripdata;
     
-SELECT * FROM jun23_tripdata ; -- confirm that the data has been inserted correctly.
-DROP TABLE june_2023_divvy_tripdata; -- Delete the source table after successful insertion.
+SELECT * FROM jul23_tripdata ; -- confirm that the data has been inserted correctly.
+DROP TABLE july_2023_divvy_tripdata; -- Delete the source table after successful insertion.
 
 /* Encountered a duplicate ride_id error for some _2023_divvy_tripdata tables. Lets check it out.*/
 SELECT ride_id, COUNT(ride_id) AS count_id
-FROM february_2023_divvy_tripdata
+FROM jul23_tripdata
 GROUP BY ride_id
 HAVING count_id > 2;
 /*There are some duplicates ride_id. Each ride should be unique. It should have a specific start and end time.
@@ -131,6 +131,13 @@ JOIN
 ON ride_id_table.ride_id = feb23_divvy_tripdata.ride_id;
 
 -- the table contains unique records.
+
+-- Having loaded the 12 dataset as tables to the Case_study_one database, we need to some pre-processing to ensure we are performing
+	-- analysis on clean data.
+    
+-- PRE-PROCESSING--
+
+
 
 -- DESCRIPTIVE STATISTICS--
 
