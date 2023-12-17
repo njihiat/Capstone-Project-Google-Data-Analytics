@@ -202,15 +202,10 @@ FROM cyclistic_tripdata;  --  The mean ride_length is 1666.0460 seconds OR 27.77
 SELECT start_day_of_week, COUNT(*) AS Frequency
 FROM cyclistic_tripdata
 GROUP BY start_day_of_week
-ORDER BY Frequency DESC;
+ORDER BY Frequency DESC
+LIMIT 1;
 		/* Results:
 			Thursday	27383
-			Friday		26034
-			Wednesday	25924
-			Saturday	25893
-			Tuesday		25201
-			Monday		22550
-			Sunday		20516
             */
 
 -- Maximum ride length
@@ -237,6 +232,21 @@ ORDER BY Mean_ride_length DESC;
 			Monday		1518.0737
 			Tuesday		1469.8323
 			Wednesday	1435.8562
+		*/
+        
+-- No of rides by day of the week
+SELECT start_day_of_week, COUNT(*) AS Number_of_rides
+FROM cyclistic_tripdata
+GROUP BY start_day_of_week
+ORDER BY Number_of_rides DESC;
+		/* Results
+			Thursday	27383
+			Friday		26034
+			Wednesday	25924
+			Saturday	25893
+			Tuesday		25201
+			Monday		22550
+			Sunday		20516
 		*/
 
 
