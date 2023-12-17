@@ -219,6 +219,10 @@ GROUP BY member_type;
 			/* 	casual	2315.1882 seconds OR 38.58 minutes 
 				member	1313.5088 seconds OR 21.88 minutes
 			*/
+-- Lets see the total number of rides per member type
+SELECT member_type, COUNT(ride_id) AS Total_rides
+FROM cyclistic_tripdata
+GROUP BY member_type;
 
 -- Average ride length per day of the week
 SELECT start_day_of_week, AVG(ride_length) AS Mean_ride_length
@@ -249,9 +253,47 @@ ORDER BY Number_of_rides DESC;
 			Sunday		20516
 		*/
 
+-- Number of stations
+SELECT COUNT(DISTINCT end_station_name )AS number_of_statation
+FROM cyclistic_tripdata; -- 1087 start_stations and 1074 end stations 
 
+-- Number of stations regardless its a start station or an end station.
 
-			
+SELECT COUNT(DISTINCT station_name) AS number_of_distinct_stations
+FROM (
+    SELECT start_station_name AS station_name FROM cyclistic_tripdata
+    UNION -- Use union to join the stations results from both the start_station and end_station columns.
+    SELECT end_station_name AS station_name FROM cyclistic_tripdata
+) AS combined_stations;
+		-- The data contains 1187 stations used as start or end station.
+        
+-- What are the different ride types
+SELECT DISTINCT ride_type
+FROM cyclistic_tripdata;
+	-- there are classic_bike, docked_bike and electric_bike
+    
+-- How do the different bikes compare
+SELECT ride_type, COUNT(ride_id) AS number_of_rides
+FROM cyclistic_tripdata
+GROUP BY ride_type
+ORDER BY number_of_rides DESC;
+	/*
+		classic_bike	93255
+		electric_bike	75641
+		docked_bike		4605
+	*/
+
+-- Average time of the different ride type
+SELECT ride_type, AVG(ride_length) AS Mean_ride_length
+FROM cyclistic_tripdata
+GROUP BY ride_type
+ORDER BY Mean_ride_length DESC;
+		/* RESULTS
+			docked_bike		5693.5246 The docked bikes have the highest average ride length though they have the least number of rides.
+			classic_bike	1779.3581
+			electric_bike	1281.1561
+		*/
+
     
 
     
