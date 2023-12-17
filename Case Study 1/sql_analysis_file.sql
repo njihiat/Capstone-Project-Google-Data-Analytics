@@ -172,22 +172,72 @@ UNION SELECT * FROM sep22_tripdata;
 
 -- create a column ride_length by subtracting start_time from end_time
 ALTER TABLE cyclistic_tripdata
-ADD COLUMN ride_length VARCHAR(20);
+ADD COLUMN ride_length TIME;
 
 UPDATE cyclistic_tripdata
 SET ride_length = SEC_TO_TIME((TIMESTAMPDIFF(SECOND, start_time, end_time)));
-
 
 /* 
 - While creating the ride_length column, I realized there are 5641 records where the start_time is later than the end_time. This is an
 abnormality. I deleted the rows 
 - Another abnormality is when the ride_length exceeded one day, There are 6118 rows 
 */
+DELETE FROM cyclistic_tripdata
+WHERE ride_length < 0 AND ride_length > 86400;
 
+-- Create a column start_day_of_week for the name of the day the ride started
+ALTER TABLE cyclistic_tripdata
+ADD COLUMN start_day_of_week VARCHAR(30);
 
+UPDATE cyclistic_tripdata
+SET start_day_of_week = DAYNAME(start_time);
 
+-- DESCRIPTIVE ANALYSIS --
+-- Mean of ride_lenght
 
+SELECT AVG(ride_length) AS Mean_ride_length
+FROM cyclistic_tripdata;  --  The mean ride_length is 1666.0460 seconds OR 27.77 minutes
 
+-- Mode start_day of the week
+SELECT start_day_of_week, COUNT(*) AS Frequency
+FROM cyclistic_tripdata
+GROUP BY start_day_of_week
+ORDER BY Frequency DESC;
+		/* Results:
+			Thursday	27383
+			Friday		26034
+			Wednesday	25924
+			Saturday	25893
+			Tuesday		25201
+			Monday		22550
+			Sunday		20516
+            */
+
+-- Maximum ride length
+SELECT MAX(ride_length) AS Highest_ride_length
+FROM cyclistic_tripdata; -- The highest ride_length is 23:43:47
+
+-- mean ride_length for members and casual riders.
+SELECT member_type, AVG(ride_length) AS Mean_ride_length
+FROM cyclistic_tripdata
+GROUP BY member_type; 
+			/* 	casual	2315.1882 seconds OR 38.58 minutes 
+				member	1313.5088 seconds OR 21.88 minutes
+			*/
+
+-- Average ride length per day of the week
+SELECT start_day_of_week, AVG(ride_length) AS Mean_ride_length
+FROM cyclistic_tripdata
+GROUP BY start_day_of_week
+ORDER BY Mean_ride_length DESC;
+		/* 	Saturday	2076.1928
+			Sunday		2073.3629
+			Friday		1618.1863
+			Thursday	1538.9061
+			Monday		1518.0737
+			Tuesday		1469.8323
+			Wednesday	1435.8562
+		*/
 
 
 
