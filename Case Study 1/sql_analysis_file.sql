@@ -137,14 +137,58 @@ ON ride_id_table.ride_id = feb23_divvy_tripdata.ride_id;
 -- PROCESSING PHASE--
 -- For performance purposes, we are going to reduce each table to 15000 records.
 
-DELETE from jan23_tripdata
+DELETE FROM nov22_tripdata 
 ORDER BY RAND()
-LIMIT 63000 ;
+LIMIT 30000 ;
 -- aug22_tripdata now has 15009 records
+-- sep22_tripdata now has 15800 records
+-- oct22_tripdata now has 15962 records
+-- nov22_tripdata now has 15974 records
 -- dec22_tripdata now has 15789 records
--- jan23_tripdata now has 
+-- jan23_tripdata now has 15679 records
 -- feb23_tripdata now has 15029 records
+-- mar23_tripdata now has 15209 records
 -- apr23_tripdata now has 15027 records
+-- may23_tripdata now has 15633 records
+-- jun23_tripdata now has 15465 records
+-- jul23_tripdata now has 15021 records
+
+-- Create one combined table joining the 12 tables
+CREATE TABLE cyclistic_tripdata AS
+SELECT * FROM apr23_tripdata
+UNION SELECT * FROM aug22_tripdata
+UNION SELECT * FROM dec22_tripdata
+UNION SELECT * FROM feb23_tripdata
+UNION SELECT * FROM jan23_tripdata 
+UNION SELECT * FROM jul23_tripdata
+UNION SELECT * FROM jun23_tripdata
+UNION SELECT * FROM mar23_tripdata
+UNION SELECT * FROM may23_tripdata
+UNION SELECT * FROM nov22_tripdata
+UNION SELECT * FROM oct22_tripdata
+UNION SELECT * FROM sep22_tripdata;
+
+-- Perform the processing on the cyclistic_tripdata table which has 185260 records
+
+-- create a column ride_length by subtracting start_time from end_time
+ALTER TABLE cyclistic_tripdata
+ADD COLUMN ride_length VARCHAR(20);
+
+UPDATE cyclistic_tripdata
+SET ride_length = SEC_TO_TIME((TIMESTAMPDIFF(SECOND, start_time, end_time)));
+
+
+/* 
+- While creating the ride_length column, I realized there are 5641 records where the start_time is later than the end_time. This is an
+abnormality. I deleted the rows 
+- Another abnormality is when the ride_length exceeded one day, There are 6118 rows 
+*/
+
+
+
+
+
+
 
 
 			
