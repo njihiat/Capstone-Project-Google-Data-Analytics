@@ -38,12 +38,14 @@ For Clarity on Different Analysis tools were used in this project.,
         SQL,
         Spreadsheets
         RStudio 
-A column called “ride_length.” was created. The length of each ride was calculated by subtracting the
-column “started_at” from the column “ended_at” (for example, =D2-C2) and formatted as HH:MM:SS 
 
-Creation of a column called “day_of_week,” and calculation of the day of the week that each ride started using the “WEEKDAY”
-command (for example, =WEEKDAY(C2,1)) in each file. Formated as General or as a number with no decimals, noting that
-1 = Sunday and 7 = Saturday.
+Merge the files into a full-year view.
+The merged workbook was imported to Microsoft SQL Server management studio for exploration.
+
+A column called “ride_length.” was created. The length of each ride was calculated by subtracting the
+column “started_at” from the column “ended_at” and formatted as HH:MM:SS 
+
+Creation of a column called “day_of_week,” and calculation of the day of the week that each ride started.
 
 There was processing done using SQL and the document is Attached. See sql_analysis_file
 
@@ -55,26 +57,21 @@ In this phase, it is worth noting the following points:
 4. Trends and Relationship
 5. How insight will help answer the business question.
 
-A descriptive analysis was conducted on the data
-Some calculations were conducted which showed a better sense of data layout. ie mean of ride length, mode of day of the week, and maximum ride length.
+A descriptive analysis was conducted on the data.
+
+Some calculations were conducted which showed a better sense of data layout. ie mean of ride length, mode of the day of the week, and maximum ride length.
 Few pivot tables were made. Avg ride_length for members and casuals, Avg ride length of users by day of week, and No of rides by day of week
 
-After summarizing and describing the data, it was merged into a full-year view.
-
-The merged workbook was imported to Microsoft SQL Server management studio for exploration
-The following was observed: The total number of rows, distinct values, maximum, minimum and averages.
-JOIN statements were used  to combine relevant data into one table.
-After creating a summary of statistics, Interesting trends were investigated and information
-saved to a table.
+After creating a summary of statistics, Interesting trends were investigated, and information was saved to a table.
 
 The merged workbook was also imported to RStudio.
 Columns were made consistent and merged into a single data frame. 
 Data was cleaned up and prepared for analysis. A descriptive analysis was done and a summary file was exported for further analysis.
 
 SHARE Phase
-After analyzing the data and gaining some insights, data visualization were created to 
+After analyzing the data and gaining some insights, data visualization was created to 
 share the findings. This Phase was guided by three questions:
-1. Was the question "How annual members and casual riders use cyclic bikes differently?" answered
+1. Was the question "How do annual members and casual riders use cyclic bikes differently?" answered
 2. How did the findings relate to the first question?
 3. Who is my audience? What is the best way to communicate?
 4. Can the visualization help to share the findings?
